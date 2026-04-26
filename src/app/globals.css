@@ -15,6 +15,13 @@ h1 {
   @apply text-4xl;
 }
 
+.container {
+  @apply mx-auto xl:max-w-3/5 lg:max-w-3/5 sm:max-w-5/5;
+}
+
+.link {
+  text-decoration: underline wavy #866FED 1px;
+}
 
 .sezionePersonaggi {
   @apply pl-3;
@@ -22,4 +29,36 @@ h1 {
 
 .titoloCategoria {
   @apply text-2xl capitalize;
+}
+
+.react-tooltip-content-wrapper {
+  @apply capitalize;
+}
+
+.md-spacer {
+  border: 4px black double;
+  filter: drop-shadow(0px 0px 3px black);
+
+  &::after {
+    content: "?";
+    height: stretch;
+    display: grid;
+    align-content: center;
+    justify-content: center;
+  }
+}
+
+
+#mappa {
+
+  #citta {
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
+
+    &:hover {
+      opacity: 0.2;
+      transition: opacity 0.3s ease-in-out;
+    }
+  }
+
 }

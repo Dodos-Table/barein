@@ -11,8 +11,8 @@ export default function RootLayout({children}: Readonly<{children: React.ReactNo
   return (
     <html lang="it" className={`h-full antialiased`}>
       <body className="min-h-full">
-        <Nav/>
-        {children}
+          <Nav/>
+          {children}
         </body>
     </html>
   );

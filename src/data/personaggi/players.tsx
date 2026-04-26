@@ -1,4 +1,4 @@
-import { INPCGroup } from "./interfaces"
+import { INPCGroup } from "./NPCinterfaces"
 
 
 const players: INPCGroup = {
@@ -6,7 +6,7 @@ const players: INPCGroup = {
         "nome": "player a",
         "descrizione": "dfkljldfjg"
     }
-    
+
 }
 
 export default players
