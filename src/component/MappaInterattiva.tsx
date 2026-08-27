@@ -1,7 +1,5 @@
-"use client"
-
 import { LuogoPOI } from "@/data/mappa/POIinterfacs"
-import { usePathname, useRouter } from "next/navigation"
+import { useLocation, useNavigate } from "react-router"
 import { Tooltip } from "react-tooltip"
 import { useState, useRef, useEffect } from "react"
 
@@ -13,8 +11,8 @@ interface InputMappaBarein {
 
 export default function MappaInterattiva(prop: InputMappaBarein) {
 
-    const pathname = usePathname()
-    const router = useRouter()
+    const { pathname } = useLocation()
+    const navigate = useNavigate()
 
     const [imgWidth, setImgWidth] = useState(0)
     const [imgHeight, setImgHeight] = useState(0)
@@ -35,7 +33,7 @@ export default function MappaInterattiva(prop: InputMappaBarein) {
 
     function onClick(event: React.MouseEvent<SVGEllipseElement>) {
         const citta = event.currentTarget.getAttribute("name") || ""
-        router.push(pathname + "/" + citta)
+        navigate(pathname.replace(/\/+$/, "") + "/" + citta)
     }
 
 

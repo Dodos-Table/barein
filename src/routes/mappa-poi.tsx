@@ -1,23 +1,25 @@
 import MappaInterattiva from "@/component/MappaInterattiva";
 import { mappaPoi } from "@/data/mappa/mappaPoi";
-import { notFound } from "next/navigation";
 import DescrizioneMD from "@/component/DescrizioneMD";
+import NotFound from "@/component/NotFound";
+import { useParams } from "react-router";
 
 
-export default async function MappaPOI({ params }: { params: Promise<{ slug: string[] }> }) {
-    const { slug } = await params
+export default function MappaPOI() {
+    const params = useParams()
+    const slug = (params["*"] ?? "").split("/").filter(Boolean).map(decodeURIComponent)
 
-    if (!slug || slug.length === 0) notFound()
+    if (slug.length === 0) return <NotFound />
 
     const [citta, luogo] = slug
     const map_barein = mappaPoi["barein"]
     const map_citta = map_barein.citta?.[citta]
-    if(!map_citta) notFound()
-    
+    if (!map_citta) return <NotFound />
+
     let poi = undefined
-    if(luogo !== undefined) {
+    if (luogo !== undefined) {
         poi = map_citta.luoghi?.[luogo]
-        if (!poi) notFound()
+        if (!poi) return <NotFound />
     }
 
     return (

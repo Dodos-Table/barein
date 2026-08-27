@@ -1,9 +1,6 @@
-'use client'
-
 import { INPCGroup } from "@/data/personaggi/NPCinterfaces";
 import personaggi from "@/data/personaggi/personaggi";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { Link, useLocation } from "react-router";
 
 function buildList(root: INPCGroup, link: string) {
 
@@ -12,7 +9,7 @@ function buildList(root: INPCGroup, link: string) {
     return ids.map(element => {
         if (typeof root[element]?.nome === "string") {
             return <li key={root[element]?.nome} className="personaggio">
-                <Link className="link" href={link + "/" + element}>{root[element]?.nome}</Link>
+                <Link className="link" to={link + "/" + element}>{root[element]?.nome}</Link>
             </li>
         }
 
@@ -33,9 +30,11 @@ function buildList(root: INPCGroup, link: string) {
 }
 
 export default function ListaPersonaggi() {
+    const { pathname } = useLocation()
+
     return <ul className="sezionePersonaggi">
         {
-            buildList(personaggi, usePathname())
+            buildList(personaggi, pathname.replace(/\/+$/, ""))
         }
     </ul>
 }

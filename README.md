@@ -1,36 +1,56 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Barein
 
-## Getting Started
+Wiki della campagna di DnD "L'Occhio su Barein": personaggi e mappa interattiva.
 
-First, run the development server:
+Sito statico costruito con [React Router 8](https://reactrouter.com) in framework mode
+(senza SSR), [Vite](https://vite.dev), [Tailwind CSS](https://tailwindcss.com) v4 e TypeScript.
+
+## Requisiti
+
+Node 24 (vedi `.nvmrc`):
+
+```bash
+nvm use
+npm install
+```
+
+## Sviluppo
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Apri [http://localhost:5173](http://localhost:5173).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Altri comandi
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build      # build di produzione in build/client (HTML prerenderizzato)
+npm run preview    # serve localmente la build
+npm run typecheck  # react-router typegen + tsc
+npm run lint       # eslint
+```
 
-## Learn More
+## Struttura
 
-To learn more about Next.js, take a look at the following resources:
+- `src/root.tsx` — documento HTML, `<Nav/>` e `<Outlet/>`
+- `src/routes.ts` — definizione delle route
+- `src/routes/` — una pagina per route
+- `src/component/` — componenti condivisi (mappa interattiva, lista personaggi, markdown)
+- `src/data/` — i contenuti della wiki, moduli TypeScript statici
+- `src/lib/markdown-plugin/` — plugin markdown-it per i segnaposto `§N§`
+- `public/assets/` — immagini di mappe e personaggi
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Contenuti
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+I testi vivono in `src/data/`. Per aggiungere un personaggio basta una voce in
+`src/data/personaggi/`, per un luogo una voce in `src/data/mappa/`: le route,
+la navigazione e le pagine statiche vengono generate da lì.
 
-## Deploy on Vercel
+Nelle descrizioni la sintassi `§N§` inserisce un segnaposto "informazione ignota"
+alto N righe, reso come riquadro con un punto interrogativo.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Deploy
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+`npm run build` produce `build/client/`, servibile da qualsiasi host statico.
+Configurare il fallback delle route non trovate su `__spa-fallback.html`.

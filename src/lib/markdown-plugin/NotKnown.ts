@@ -1,6 +1,5 @@
 import type MarkdownIt from "markdown-it"
-import { Token } from "markdown-it/dist/markdown-it.min.js";
-import StateBlock from "markdown-it/lib/rules_block/state_block.mjs"
+import type StateBlock from "markdown-it/lib/rules_block/state_block.mjs"
 
 interface NotKnownInput {
     className?: string

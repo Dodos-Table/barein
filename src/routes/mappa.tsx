@@ -1,8 +1,6 @@
-"use client"
-
 import MappaInterattiva from "@/component/MappaInterattiva";
 import { mappaPoi } from "@/data/mappa/mappaPoi";
-import DescrizioneMD from '../../component/DescrizioneMD';
+import DescrizioneMD from "@/component/DescrizioneMD";
 
 
 export default function Mappa() {
