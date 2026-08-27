@@ -1,4 +1,4 @@
-import { INPCGroup } from "./NPCinterfaces"
+import type { INPCGroup } from "./NPCinterfaces"
 import players from "./players"
 import teville from "./teville"
 

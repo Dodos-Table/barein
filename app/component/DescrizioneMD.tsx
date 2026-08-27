@@ -1,6 +1,6 @@
 
 import markdownit from 'markdown-it'
-import NotKnownPlugin from "@/lib/markdown-plugin/NotKnown";
+import NotKnownPlugin from "../lib/markdown-plugin/NotKnown";
 
 interface DescrizioneMDProps {
     descrizione: string

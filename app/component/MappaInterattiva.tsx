@@ -1,4 +1,4 @@
-import { LuogoPOI } from "@/data/mappa/POIinterfacs"
+import type { LuogoPOI } from "../data/mappa/POIinterfacs"
 import { useLocation, useNavigate } from "react-router"
 import { Tooltip } from "react-tooltip"
 import { useState, useRef, useEffect } from "react"

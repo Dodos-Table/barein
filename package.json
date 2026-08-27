@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "react-router dev",
-    "build": "react-router build && node scripts/decode-prerender-paths.mjs",
+    "build": "react-router build",
     "preview": "vite preview",
     "typecheck": "react-router typegen && tsc",
     "lint": "eslint ."

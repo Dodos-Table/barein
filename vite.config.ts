@@ -3,11 +3,17 @@ import tailwindcss from "@tailwindcss/vite";
 import { defineConfig } from "vite";
 
 export default defineConfig({
-  // Risolve l'alias "@/*" da tsconfig.json (nativo in Vite 8).
-  resolve: { tsconfigPaths: true },
-  // Il prerender di build avvia un preview server e lo interroga con node:http.
-  // Senza host esplicito Vite si lega a ::1 ma annuncia "localhost", che viene
-  // risolto su IPv4 -> ECONNREFUSED. Vincolarlo a 127.0.0.1 allinea le due cose.
-  preview: { host: "127.0.0.1" },
+  // Il sito è servito da GitHub Pages sulla radice del dominio custom dmi.dodos-table.it:
+  // con un dominio custom il segmento /campagna-dmi/ della project page sparisce.
+  base: "/",
+  // Il prerender SPA del build avvia un preview server e lo interroga su 127.0.0.1.
+  // Senza `host` esplicito Vite si lega solo a ::1 e la richiesta fallisce con ECONNREFUSED,
+  // lasciando il build senza index.html.
+  preview: {
+    host: "127.0.0.1",
+  },
   plugins: [tailwindcss(), reactRouter()],
+  resolve: {
+    tsconfigPaths: true,
+  },
 });

@@ -1,4 +1,4 @@
-import { INPCGroup } from "./NPCinterfaces"
+import type { INPCGroup } from "./NPCinterfaces"
 
 
 const players: INPCGroup = {

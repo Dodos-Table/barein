@@ -1,4 +1,4 @@
-import { INPC, INPCGroup } from "@/data/personaggi/NPCinterfaces";
+import type { INPC, INPCGroup } from "@/data/personaggi/NPCinterfaces";
 import personaggi from "@/data/personaggi/personaggi";
 import markdownit from 'markdown-it'
 import NotKnownPlugin from "@/lib/markdown-plugin/NotKnown";

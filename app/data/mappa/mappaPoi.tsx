@@ -1,4 +1,4 @@
-import { MappaGroup } from "./POIinterfacs";
+import type { MappaGroup } from "./POIinterfacs";
 import teville from "./teville";
 
 export const mappaPoi: MappaGroup = {

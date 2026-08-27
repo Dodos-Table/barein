@@ -1,7 +1,7 @@
-import MappaInterattiva from "@/component/MappaInterattiva";
-import { mappaPoi } from "@/data/mappa/mappaPoi";
-import DescrizioneMD from "@/component/DescrizioneMD";
-import NotFound from "@/component/NotFound";
+import MappaInterattiva from "../../component/MappaInterattiva";
+import { mappaPoi } from "../../data/mappa/mappaPoi";
+import DescrizioneMD from "../../component/DescrizioneMD";
+import NotFound from "../../component/NotFound";
 import { useParams } from "react-router";
 
 

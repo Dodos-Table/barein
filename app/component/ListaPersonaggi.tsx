@@ -1,5 +1,5 @@
-import { INPCGroup } from "@/data/personaggi/NPCinterfaces";
-import personaggi from "@/data/personaggi/personaggi";
+import type { INPCGroup } from "../data/personaggi/NPCinterfaces";
+import personaggi from "../data/personaggi/personaggi";
 import { Link, useLocation } from "react-router";
 
 function buildList(root: INPCGroup, link: string) {

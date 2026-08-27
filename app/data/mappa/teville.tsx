@@ -1,4 +1,4 @@
-import { CittaGroup } from "./POIinterfacs"
+import type { CittaGroup } from "./POIinterfacs"
 
 const teville: CittaGroup = {
 
